@@ -3,42 +3,30 @@
 namespace App\Services;
 
 class CsvServices{
+    private $file = __DIR__ . '/../../storage/csv/file.csv';
 
-    public function array2csv(array &$array)
-    {
-        if (count($array) == 0) {
-            return null;
+    public function generateCsv($thead, $tbody){
+        $indices = [];
+
+        $fp = fopen($this->file, 'w');
+        
+        // escreve o indice
+        foreach ($thead as $th) {
+            fwrite($fp, $th->nome . ';');
+            array_push($indices, GeneralServices::replaceSpecialCharacters($th->nome) );
         }
-        ob_start();
-        $df = fopen("php://output", 'w');
-        fputcsv($df, array_keys(reset($array)));
-        foreach ($array as $row) {
-            fputcsv($df, $row);
+
+        // quebra linha
+        fwrite($fp,"\n");
+        
+        // escreve tabela com os dados
+        foreach ($tbody as $fields) {
+            foreach($indices as $tr){
+                fwrite($fp, $fields[$tr] . ';');
+            }
+            fwrite($fp, "\n");
         }
-        fclose($df);
-        return ob_get_clean();
-    }
-
-    public function download_send_headers($filename) {
-        // disable caching
-        $now = gmdate("D, d M Y H:i:s");
-        header("Expires: Tue, 03 Jul 2001 06:00:00 GMT");
-        header("Cache-Control: max-age=0, no-cache, must-revalidate, proxy-revalidate");
-        header("Last-Modified: {$now} GMT");
-    
-        // force download  
-        header("Content-Type: application/force-download");
-        header("Content-Type: application/octet-stream");
-        header("Content-Type: application/download");
-    
-        // disposition / encoding on response body
-        header("Content-Disposition: attachment;filename={$filename}");
-        header("Content-Transfer-Encoding: binary");
-    }
-
-    public function start($array){
-        $this->download_send_headers("data_export_" . date("Y-m-d") . ".csv");
-        $this->array2csv($array);
-        die();
+        
+        fclose($fp);
     }
 }

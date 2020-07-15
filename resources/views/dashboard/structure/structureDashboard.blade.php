@@ -18,12 +18,22 @@
         
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav">
-    
-                    <a href="{{ route('dashboard.dataTable') }}" class="nav-item nav-link ml-2 active">Tabela de Dados</a>
-                    <a href="{{ route('dashboard.editForm') }}" class="nav-item nav-link ml-2">Abaixo Assinado</a>
+                    <a 
+                        href="{{ route('dashboard.dataTable') }}" 
+                        class="nav-item nav-link ml-2 {{ $_SERVER['REQUEST_URI'] == '/data-table' ? 'active' : '' }}"
+                    >
+                        Tabela de Dados
+                    </a>
+                    
+                    <a 
+                        href="{{ route('dashboard.editForm') }}" 
+                        class="nav-item nav-link ml-2 {{ ($_SERVER['REQUEST_URI'] == '/edit-form' || $_SERVER['REQUEST_URI'] == '/edit-form-site')  ? 'active' : '' }}"
+                    >
+                        Abaixo Assinado
+                    </a>
                 </div>
 
-                <a href="" class="ml-auto text-white button-sair">Sair</a>
+                <a href="{{ route('dashboard.logout.action') }}" class="ml-auto text-white button-sair">Sair</a>
             </div>
         </div>        
     </nav>
@@ -34,7 +44,6 @@
             <p class="lead">Sessão dedicada para editar a página do site.</p>
         </div>
     </div>
-
 
     @yield('content-page')
 

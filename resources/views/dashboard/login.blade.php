@@ -69,6 +69,10 @@
             e.preventDefault();
             form.submit();;
         })
+
+        document.addEventListener('keydown', (e) =>{
+          if (e.keyCode == 13) form.submit();
+        })
     </script>
 </body>
 </html>

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\AbaixoAssinado;
 use App\FormSite;
 use App\Services\CsvServices;
+use App\Services\DownloadFileService;
+use App\Services\GeneralServices;
+use Exception;
 use Illuminate\Http\Request;
 
 class DataTableController extends Controller
@@ -28,23 +31,40 @@ class DataTableController extends Controller
     }
 
     public function csvGenerate(){
-        $tbody = AbaixoAssinado::all();
+        
+            $tbody = AbaixoAssinado::all();
+            $thead = FormSite::all();
 
-        $list = array (
-            array('aaa', 'bbb', 'ccc', 'dddd'),
-            array('123', '456', '789'),
-            array('"aaa"', '"bbb"')
-        );
-        
-        // $fp = fopen('file.csv', 'w');
-        $fp = fopen('file.csv', 'w');
-        
-        foreach ($list as $fields) {
-            fputcsv($fp, $fields);
+        if(!count($tbody))
+            return redirect()
+            ->route('dashboard.dataTable')
+            ->withErrors(['A tabela está vázia']);
+
+        try{
+            $csvService = new CsvServices();
+            $csvService->generateCsv($thead, $tbody);
+    
+            $downloadFile = new DownloadFileService();
+            $downloadFile->csv();
+            
         }
-        
-        fclose($fp);
+        catch(Exception $error){
+            return redirect()
+                ->route('dashboard.dataTable')
+                ->withErrors(['Houve um erro na geração do arquivo csv.']);
+        }
+    }
 
-        return 'ko';
+    public function cleanData(){
+        try{
+            AbaixoAssinado::where('id', '>=', 0)->delete();
+            return redirect()
+                ->route('dashboard.dataTable');
+        }
+        catch(Exception $error){
+            return redirect()
+                ->route('dashboard.dataTable')
+                ->withErrors(['Houve um erro ao tentar deletar todos os dados.']);
+        }
     }
 }

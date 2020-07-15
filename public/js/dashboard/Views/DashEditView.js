@@ -1,7 +1,6 @@
 export default class DashDataView {
     constructor() {
         this._templateCamp = `
-            <li class="block-inputs d-flex justify-content-between mb-4">
                 <div class="col-3">
                     <label for="">Input:</label>
                     <input 
@@ -51,15 +50,17 @@ export default class DashDataView {
                         <button class="btn btn-danger buttonDelete-js">Excluir</button>
                     </div>
                 </div>
-            </li>
         `;
     }
     addNewItem(element, amount) {
-        console.log(element);
         let ul = element.querySelector('ul');
-        let string = ul.innerHTML;
-        string += this._templateCamp.replace(/{amount}/g, (amount + 1).toString());
-        ul.innerHTML = string;
+        let li = document.createElement("li");
+        li.classList.add('block-inputs');
+        li.classList.add('d-flex');
+        li.classList.add('justify-content-between');
+        li.classList.add('mb-4');
+        li.innerHTML = this._templateCamp.replace(/{amount}/g, (amount + 1).toString());
+        ul.appendChild(li);
     }
     deleteItem(el) {
         el.remove();

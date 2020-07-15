@@ -44,7 +44,7 @@
                                 @endif
 
                                 <div class="d-flex justify-content-between">
-                                    <a href="{{route('dashboard.home')}}" class="btn btn-dark">Cancelar</a>
+                                    <a href="{{route('dashboard.editForm')}}" class="btn btn-dark">Cancelar</a>
                                     <a href="#" class="btn btn-primary buttonAddsField-js">Adicionar campo</a>
                                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalEditForm-js">
                                         Ativar Campanha

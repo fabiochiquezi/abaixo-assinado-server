@@ -24,7 +24,7 @@ class LoginController extends Controller
         }
 
         if(Auth::attempt($data)){
-            return redirect()->route('dashboard.home');
+            return redirect()->route('dashboard.dataTable');
         }
 
         return redirect()->route('dashboard.login')->withInput()->withErrors(['Dados inválidos']);
@@ -33,6 +33,6 @@ class LoginController extends Controller
     public function logoutAction(){
         Auth::logout();
 
-        return redirect()->route('');
+        return redirect()->route('dashboard.dataTable');
     }
 }

@@ -9,7 +9,7 @@ use DomainException;
 class CreateStringQuery{
 
     public function basic($name, $type){
-        if(!$name) throw new DomainException('O atributo nome é obrigatório');
+        if(!$name) throw new DomainException('O atributo "Input" é obrigatório, não deve ser enviado vázio');
         if(is_numeric($name)) throw new DomainException('O atributo nome é deve ser do tipo texto somente.');
         
         $name = GeneralServices::replaceSpecialCharacters($name);

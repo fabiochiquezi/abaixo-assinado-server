@@ -46,9 +46,9 @@ class EditSystemController extends Controller
 
         if(!$transaction['ok'])
             return redirect()
-                ->route('dashboard.home')
+                ->route('dashboard.editForm-site')
                 ->withErrors([$transaction['error']]);
 
-        return redirect()->route('dashboard.home');
+        return redirect()->route('dashboard.editForm');
     }
 }

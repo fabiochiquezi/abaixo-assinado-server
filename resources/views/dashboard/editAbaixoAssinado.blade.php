@@ -82,7 +82,7 @@
                                 @endif
 
                                 <div class="d-flex justify-content-between">
-                                    <a href="{{route('dashboard.editForm')}}" class="btn btn-primary">Nova Campanha</a>
+                                    <a href="{{ route('dashboard.editForm-site') }}" class="btn btn-primary">Nova Campanha</a>
                                 </div>
                             </div>
                         </div>
