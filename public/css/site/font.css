@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'active_fillregular';
+  src: url("font/activefill-regular-webfont.woff2") format("woff2"), url("font/activefill-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'active_one_fillregular';
+  src: url("font/activeonefill-regular-webfont.woff2") format("woff2"), url("font/activeonefill-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'active_oneregular';
+  src: url("font/activeone-regular-webfont.woff2") format("woff2"), url("font/activeone-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'activeregular';
+  src: url("font/active-regular-webfont.woff2") format("woff2"), url("font/active-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'active_two_fillregular';
+  src: url("font/activetwofill-regular-webfont.woff2") format("woff2"), url("font/activetwofill-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: 'active_tworegular';
+  src: url("activetwo-regular-webfont.woff2") format("woff2"), url("activetwo-regular-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }

@@ -4,9 +4,14 @@ namespace App\Services;
 
 use App\PersonConfig\PersonField;
 use App\Services\GeneralServices;
+use DomainException;
 
 class CreateStringQuery{
+
     public function basic($name, $type){
+        if(!$name) throw new DomainException('O atributo nome é obrigatório');
+        if(is_numeric($name)) throw new DomainException('O atributo nome é deve ser do tipo texto somente.');
+        
         $name = GeneralServices::replaceSpecialCharacters($name);
         $typesDB = new PersonField();
 
@@ -15,4 +20,5 @@ class CreateStringQuery{
 
         return $string;
     }
+    
 }

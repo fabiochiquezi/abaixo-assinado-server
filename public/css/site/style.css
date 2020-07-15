@@ -7208,36 +7208,291 @@ a.text-dark:hover, a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6; } }
 
-.content-system-sig-in {
-  background: #efefef; }
-  .content-system-sig-in .row {
-    position: relative;
-    height: 100vh; }
-  .content-system-sig-in .form-login {
-    width: 320px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-left: -160px;
-    margin-top: -175px;
-    background: #fff;
-    padding: 24px 32px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px 3px rgba(0, 0, 0, 0.1); }
-    .content-system-sig-in .form-login .form-group {
-      width: 260px; }
-    .content-system-sig-in .form-login label {
-      margin-bottom: 0.35rem; }
-    .content-system-sig-in .form-login h1 {
-      font-size: 36px; }
+html, body {
+  font-family: 'Montserrat';
+  font-size: 16px; }
 
-.content-system-page .formEditAbaixoAssinado-js li:nth-child(even) {
-  background: #efefef;
-  padding: 16px 0px; }
+h2.title-standard {
+  font-family: Cookie;
+  color: #ffd60d;
+  font-size: 60px !important; }
+  @media (min-width: 640px) {
+    h2.title-standard {
+      font-size: 70px !important;
+      line-height: 70px; } }
+  @media (min-width: 768px) {
+    h2.title-standard {
+      grid-column: 1 / 3; } }
 
-.custom-file-label {
-  max-width: 570px;
-  margin-left: 15px; }
+@media (min-width: 992px) {
+  .social-media-standard1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; } }
+
+@media (min-width: 992px) {
+  .social-media-standard1 ul {
+    margin-right: 15px; } }
+
+.social-media-standard1 p {
+  text-align: center;
+  font-size: 18px; }
+  @media (min-width: 992px) {
+    .social-media-standard1 p {
+      text-align: left;
+      width: 184px; } }
+
+.social-media-standard1 li + li {
+  margin-left: 35px; }
+
+.social-media-standard1 a {
+  transition: all .2s ease; }
+  .social-media-standard1 a:hover {
+    opacity: 0.5; }
+
+.link-pad p {
+  font-weight: bolder; }
+
+.link-pad .btn {
+  background-color: #ffd60d;
+  font-size: 15.5px;
+  font-weight: bold;
+  border-radius: 0px;
+  line-height: 15px;
+  height: 35px;
+  width: 130px;
+  padding-top: 9.5px;
+  transition: all 0.3s ease; }
+  .link-pad .btn:hover {
+    opacity: 0.5; }
+
+.icon {
+  background: url("../../img/sprite.png") no-repeat;
+  display: inline-block; }
+
+.icon-endereco {
+  width: 15px;
+  height: 19px;
+  background-position: -49px 0px; }
+
+.icon-whatsapp {
+  width: 19px;
+  height: 19px;
+  background-position: -27px 0px; }
+
+.icon-email {
+  width: 24px;
+  height: 16px; }
+
+.navbar-light .navbar-toggler {
+  border: none;
+  padding: 0px;
+  cursor: pointer;
+  transition: all .3s ease; }
+  .navbar-light .navbar-toggler:hover {
+    opacity: 0.75; }
+
+.navbar-light .navbar-toggler-icon {
+  background: url("../../img/menu-hamb.png") no-repeat center center !important;
+  background-size: cover;
+  width: 37px; }
+
+.header-site .msg-top {
+  background: #ffd60d; }
+  .header-site .msg-top span {
+    text-transform: uppercase;
+    font-size: 17px;
+    text-align: center;
+    padding: 13px 0px;
+    line-height: 23px;
+    font-weight: bolder; }
+    @media (min-width: 460px) {
+      .header-site .msg-top span {
+        line-height: 17px; } }
+
+.header-site .navbar-brand {
+  transition: all .2s ease; }
+  .header-site .navbar-brand:hover {
+    opacity: 0.5; }
+
+.header-site .navbar-nav a.active {
+  background: #300051;
+  color: #fff !important; }
+  @media (min-width: 768px) {
+    .header-site .navbar-nav a.active {
+      background: none;
+      color: #dd394f !important; } }
+
+.header-site .navbar-nav a {
+  font-size: 20px;
+  padding: 22px 10px 19px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  line-height: 20px; }
+  @media (min-width: 768px) {
+    .header-site .navbar-nav a {
+      font-size: 14px;
+      border-bottom: none;
+      padding: 0px;
+      line-height: 16px;
+      font-weight: bold;
+      color: #310051 !important; } }
+
+.header-site .navbar-nav a:hover {
+  color: #dd394f !important; }
+
+@media (min-width: 768px) {
+  .header-site .navbar-nav a:last-child {
+    text-align: center;
+    width: 75px; } }
+
+.banner-site {
+  height: 400px;
+  width: 100%;
+  background: url("../../img/banner-desktop.png") no-repeat center center;
+  background-size: cover; }
+  @media (min-width: 768px) {
+    .banner-site {
+      height: 526px;
+      background: url("../../img/banner-desktop.png") no-repeat center center;
+      background-size: cover; } }
+
+.form-site {
+  background: #300051;
+  color: #fff;
+  padding: 40px 0px; }
+  @media (min-width: 992px) {
+    .form-site .container {
+      background: url("../../img/bg-form.png") no-repeat center 90px #300051;
+      background-size: 440px;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      align-items: flex-end; } }
   @media (min-width: 1200px) {
-    .custom-file-label {
-      max-width: 682.5px; } }
+    .form-site .container {
+      grid-template-columns: 780px 320px; } }
+  .form-site h2 {
+    text-align: center;
+    font-size: 26px;
+    line-height: 2rem; }
+    @media (min-width: 992px) {
+      .form-site h2 {
+        text-align: left;
+        line-height: 2.2rem; } }
+    .form-site h2 span {
+      display: inline-block;
+      font-size: 26px; }
+    .form-site h2 strong {
+      font-weight: bolder;
+      margin-bottom: 32px;
+      display: inline-block; }
+  .form-site label {
+    margin-bottom: 40px; }
+    @media (min-width: 992px) {
+      .form-site label {
+        max-width: 410px; } }
+    .form-site label span {
+      display: inline-block;
+      margin-bottom: 5px; }
+    .form-site label input {
+      width: 100%;
+      height: 34px;
+      padding: 0px 10px; }
+  .form-site .box-input {
+    margin-bottom: 40px;
+    display: flex;
+    align-items: flex-start; }
+    .form-site .box-input span {
+      line-height: 20px;
+      margin-left: 10px;
+      margin-top: -5px; }
+  .form-site button.btn {
+    width: 100%;
+    background: #ffd60d;
+    font-weight: bolder;
+    color: #300051;
+    border-radius: 0px;
+    transition: all .2s ease; }
+    @media (min-width: 992px) {
+      .form-site button.btn {
+        width: 75px; } }
+    .form-site button.btn:hover {
+      opacity: 0.75; }
+  .form-site .load {
+    margin-top: 16px;
+    display: none; }
+    @media (min-width: 992px) {
+      .form-site .load {
+        margin-top: 0px; } }
+  .form-site .load.active {
+    display: block; }
+  .form-site .button-loader {
+    margin-bottom: 48px; }
+    @media (min-width: 992px) {
+      .form-site .button-loader {
+        width: 120px;
+        margin-bottom: 0px; } }
+  .form-site .errors {
+    display: none; }
+    .form-site .errors p {
+      color: red; }
+  .form-site .errors.active {
+    display: block; }
+  .form-site .input-error {
+    border: 2px solid red !important; }
+
+main.content-site {
+  margin: 90px  0px; }
+  main.content-site h1 {
+    font-family: Cookie;
+    font-size: 32px; }
+  main.content-site .p-content {
+    font-size: 18px;
+    line-height: 26px; }
+
+.footer-site .top {
+  background: #300051;
+  color: #fff;
+  padding: 28px 0px; }
+  @media (min-width: 992px) {
+    .footer-site .top {
+      padding: 58px 0px 48px; } }
+  .footer-site .top .logo {
+    margin-bottom: 32px; }
+    @media (min-width: 992px) {
+      .footer-site .top .logo {
+        margin-bottom: 0px;
+        margin-left: 150px; } }
+  .footer-site .top ul {
+    text-align: center; }
+  .footer-site .top li {
+    margin-bottom: 32px;
+    font-size: 17px; }
+    .footer-site .top li i {
+      margin-bottom: 10px; }
+      @media (min-width: 992px) {
+        .footer-site .top li i {
+          margin-bottom: 0px;
+          margin-right: 6px; } }
+    .footer-site .top li:last-child {
+      margin-bottom: 0px; }
+
+.footer-site .bottom {
+  background: #5b0994;
+  color: #fff;
+  padding: 24px 0px;
+  font-size: 12px; }
+
+.success-form {
+  border-top: 10px solid #ffd60d;
+  border-bottom: 10px solid #ffd60d;
+  background: #300051;
+  color: #fff; }
+  .success-form .container {
+    min-height: 450px; }
+  .success-form p {
+    max-width: 400px; }
+  @media (min-width: 992px) {
+    .success-form .social-media-standard1 {
+      align-items: center; } }
+  .success-form .social-media-standard1 .h2 {
+    color: #ffd60d; }

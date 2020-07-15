@@ -10,7 +10,7 @@
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark header-site">
         <div class="container">
-            <a href="" class="navbar-brand">Dashboard</a>
+            <a href="{{ route('dashboard.dataTable') }}" class="navbar-brand">Dashboard</a>
 
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
@@ -19,8 +19,8 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav">
     
-                    <a href="" class="nav-item nav-link ml-2 active">Tabela de Dados</a>
-                    <a href="" class="nav-item nav-link ml-2">Abaixo Assinado</a>
+                    <a href="{{ route('dashboard.dataTable') }}" class="nav-item nav-link ml-2 active">Tabela de Dados</a>
+                    <a href="{{ route('dashboard.editForm') }}" class="nav-item nav-link ml-2">Abaixo Assinado</a>
                 </div>
 
                 <a href="" class="ml-auto text-white button-sair">Sair</a>
@@ -44,8 +44,8 @@
         </div>
     </div>
 
+    <script type="module" src="./js/dashboard/Pages/dashEdit.js"></script>
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
-    <script type="module" src="./js/dashboard/Pages/dashEdit.js"></script>
 </body>
 </html>

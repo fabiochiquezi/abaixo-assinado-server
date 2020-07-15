@@ -1,0 +1,75 @@
+html, body {
+  font-family: 'Montserrat';
+  font-size: 16px; }
+
+h2.title-standard {
+  font-family: Cookie;
+  color: #ffd60d;
+  font-size: 60px !important; }
+  @media (min-width: 640px) {
+    h2.title-standard {
+      font-size: 70px !important;
+      line-height: 70px; } }
+  @media (min-width: 768px) {
+    h2.title-standard {
+      grid-column: 1 / 3; } }
+
+@media (min-width: 992px) {
+  .social-media-standard1 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; } }
+
+@media (min-width: 992px) {
+  .social-media-standard1 ul {
+    margin-right: 15px; } }
+
+.social-media-standard1 p {
+  text-align: center;
+  font-size: 18px; }
+  @media (min-width: 992px) {
+    .social-media-standard1 p {
+      text-align: left;
+      width: 184px; } }
+
+.social-media-standard1 li + li {
+  margin-left: 35px; }
+
+.social-media-standard1 a {
+  transition: all .2s ease; }
+  .social-media-standard1 a:hover {
+    opacity: 0.5; }
+
+.link-pad p {
+  font-weight: bolder; }
+
+.link-pad .btn {
+  background-color: #ffd60d;
+  font-size: 15.5px;
+  font-weight: bold;
+  border-radius: 0px;
+  line-height: 15px;
+  height: 35px;
+  width: 130px;
+  padding-top: 9.5px;
+  transition: all 0.3s ease; }
+  .link-pad .btn:hover {
+    opacity: 0.5; }
+
+.icon {
+  background: url("../../img/sprite.png") no-repeat;
+  display: inline-block; }
+
+.icon-endereco {
+  width: 15px;
+  height: 19px;
+  background-position: -49px 0px; }
+
+.icon-whatsapp {
+  width: 19px;
+  height: 19px;
+  background-position: -27px 0px; }
+
+.icon-email {
+  width: 24px;
+  height: 16px; }

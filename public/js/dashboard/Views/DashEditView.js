@@ -8,21 +8,8 @@ export default class DashDataView {
                         name="item[{amount}][nomeInput]"
                         type="text" 
                         class="form-control" 
-                        placeholder="Digite o nome do campo"
+                        placeholder="Nome do input"
                     >
-                </div>
-
-                <div class="col-3">
-                    <label for="">Tipo:</label>
-                    <select 
-                        name="item[{amount}][tipoInput]"
-                        class="form-control"
-                    >
-                        <option value="0">Texto</option>
-                        <option value="1">Texto Simples</option>
-                        <option value="2">Número</option>
-                        <option value="3">Email</option>
-                    </select>
                 </div>
 
                 <div class="col-3">
@@ -31,11 +18,33 @@ export default class DashDataView {
                         name="item[{amount}][placeholderInput]"
                         type="text" 
                         class="form-control" 
-                        placeholder="Digite o descritivo do campo"
+                        placeholder="Descritivo do campo"
                     >
                 </div>
+                
+                <div class="col-2">
+                    <label for="">Tipo:</label>
+                    <select 
+                        name="item[{amount}][tipoInput]"
+                        class="form-control"
+                    >
+                        <option value="0">Texto</option>
+                        <option value="1">Simples</option>
+                    </select>
+                </div>
 
-                <div class="col-3">
+                <div class="col-2">
+                    <label for="">Obrigatório:</label>
+                    <select 
+                        name="item[{amount}][requiredInput]"
+                        class="form-control"
+                    >
+                        <option value="0">Não</option>
+                        <option value="1">Sim</option>
+                    </select>
+                </div>
+                
+                <div class="col-2">
                     <label for="">Ações:</label>
                     <div class="d-flex">
                         <!-- <button class="btn btn-primary mr-1 buttonEdit-js">Editar</button> -->

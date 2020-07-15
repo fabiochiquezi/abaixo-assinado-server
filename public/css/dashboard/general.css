@@ -1,0 +1,6 @@
+.custom-file-label {
+  max-width: 570px;
+  margin-left: 15px; }
+  @media (min-width: 1200px) {
+    .custom-file-label {
+      max-width: 682.5px; } }

@@ -8,81 +8,78 @@ use App\Services\GeneralServices;
 use DomainException;
 
 class RepositoryFormSite{
+    private string $newTableString = '';
+    private array $dataBase = array(
+        array(
+            'nome' => 'Nome',
+            'tipo' => 1,
+            'placeholder' => 'Digite seu nome',
+            'required' => 1
+        ),
+        array(
+            'nome' => 'E-mail',
+            'tipo' => 3,
+            'placeholder' => 'Digite seu email',
+            'required' => 1
+        ),
+        array(
+            'nome' => 'Whatsapp',
+            'tipo' => 1,
+            'placeholder' => 'Digite seu whatsapp',
+            'required' => 1
+        )
+    );
 
     public function newFormSite($request){
-        $newTableString = '';
-
-        DB::connection()->enableQueryLog();
-
         DB::beginTransaction();
             FormSite::where('id', '>=', 0)->delete();
-
-            $nomeStandardForm = new FormSite();
-            $nomeStandardForm->nome = 'Nome';
-            $nomeStandardForm->tipo = 1;
-            $nomeStandardForm->placeholder = 'Digite seu nome';
-            $nomeStandardForm->save();
-
-            $emailStandardForm = new FormSite();
-            $emailStandardForm->nome = 'E-mail';
-            $emailStandardForm->tipo = 3;
-            $emailStandardForm->placeholder = 'Digite seu email';
-            $emailStandardForm->save();
-
-            $whatsappStandardForm = new FormSite();
-            $whatsappStandardForm->nome = 'Whatsapp';
-            $whatsappStandardForm->tipo = 1;
-            $whatsappStandardForm->placeholder = 'Digite seu whatsapp';
-            $whatsappStandardForm->save();
 
             try{
                 $createString = new CreateStringQuery();
 
-                foreach($request as $item){
-                    $newItem = new FormSite();
-                    $newItem->nome = $item['nomeInput'];
-                    $newItem->tipo = $item['tipoInput'];
-                    $newItem->placeholder = $item['placeholderInput'];
-                    $newItem->save();
+                if(count($request)){
+                    foreach($request as $item){
+                        array_push($this->dataBase, array(
+                            'nome' => $item['nomeInput'],
+                            'tipo' => $item['tipoInput'],
+                            'placeholder' => $item['placeholderInput'],
+                            'required' => $item['requiredInput']
+                        ));
 
-                    $newTableString = 
-                        $newTableString . $createString->basic(
-                            $item['nomeInput'],
-                            $item['tipoInput']
-                    ) . ', ';
+                        $this->newTableString = 
+                            $this->newTableString . 
+                            $createString->basic($item['nomeInput'], $item['tipoInput']) . 
+                            ', ';
+                    }
                 }
 
-                $this->alterTableAbaixoAssinado($newTableString);
+                FormSite::insert($this->dataBase);
+                $this->alterTableAbaixoAssinado($this->newTableString);
             }
             catch(DomainException $error){
                 DB::rollBack(); 
-                return [
-                    'ok' => false,
-                    'error' =>  $error->getMessage()
-                ];
+                return [ 'ok' => false, 'error' =>  $error->getMessage() ];
             }
             
         DB::commit();
-
-        $queries = DB::getQueryLog();
-        echo "<pre>";
-        print_r($queries);
-
         return ['ok' => true];
     }
 
     private function alterTableAbaixoAssinado($newTableString){
-        $newTableString = GeneralServices::substring2Last($newTableString);
+        $newTableString = substr($newTableString, 0, -2);
+        $queryStandard = "
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            nome VARCHAR(250) not null,
+            e_mail VARCHAR(250) not null,
+            whatsapp VARCHAR(13) not null";
 
         DB::statement('drop table if exists abaixo_assinado');
-        DB::statement(
-            "create table if not exists abaixo_assinado (
-                id INT AUTO_INCREMENT PRIMARY KEY,
-                nome VARCHAR(250) not null,
-                email VARCHAR(250) not null,
-                whatsapp VARCHAR(13) not null,
-                {$newTableString}
-            )"
-        );
+        
+        if($newTableString){
+            DB::statement("create table if not exists abaixo_assinado ({$queryStandard}, {$newTableString})");
+            return;
+        }
+
+        DB::statement("create table if not exists abaixo_assinado ({$queryStandard})");
     }
 }

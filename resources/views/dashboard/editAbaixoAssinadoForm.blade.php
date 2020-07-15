@@ -21,54 +21,16 @@
                     <div class="tab-content" id="v-pills-tabContent">
 
                         <div class="tab-pane fade show active" id="v-pills-formulario" role="tabpanel" aria-labelledby="v-pills-formulario-tab">
-                            <div 
+                            <form 
+                                action="{{ route('dashboard.editFormSite.action') }}"
+                                method="POST"
                                 class="d-flex flex-column justify-content-end col-12 formEditAbaixoAssinado-js"
                             >
+
                                 @csrf
                                 <div class="group-field edit-form-system mb-4">
-                                    <ul class="form-list">
-                                        @foreach($dataInputs as $input)                                        
-                                            <li class="block-inputs d-flex justify-content-between mb-2">
-                                                <div class="col-3 form-li-field">
-                                                    <label class="font-weight-bold" for="">Input:</label>
-                                                    
-                                                    <div class="form-content-field">
-                                                        <p class="mb-0">{{$input->nome}}</p>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-3 form-li-field">
-                                                    <label class="font-weight-bold" for="">Tipo:</label>
-                                                    
-                                                    <div class="form-content-field">
-                                                        <p class="mb-0">
-                                                            {{$typesInput[$input->tipo]}}
-                                                        </p>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-3 form-li-field">
-                                                    <label class="font-weight-bold" for="">Placeholder:</label>
-
-                                                    <div class="form-content-field">
-                                                        <p class="mb-0">
-                                                            {{$input->placeholder}}
-                                                        </p>
-                                                    </div>
-                                                </div>
-
-                                                <div class="col-3 form-li-field">
-                                                    <label class="font-weight-bold" for="">Obrigatório:</label>
-
-                                                    <div class="form-content-field">
-                                                        <p class="mb-0">
-                                                            {{$typesRequired[$input->required]}}
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        @endforeach
-                                    </ul>
+                                    <p class="mb-3">Os campos nome, email e whatsapp são padrões do formulário e serão inseridos no início dele automáticamente.</p>
+                                    <ul class="form-list"></ul>
                                 </div>
 
                                 @if($errors->all())
@@ -82,9 +44,13 @@
                                 @endif
 
                                 <div class="d-flex justify-content-between">
-                                    <a href="{{route('dashboard.editForm')}}" class="btn btn-primary">Nova Campanha</a>
+                                    <a href="{{route('dashboard.home')}}" class="btn btn-dark">Cancelar</a>
+                                    <a href="#" class="btn btn-primary buttonAddsField-js">Adicionar campo</a>
+                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modalEditForm-js">
+                                        Ativar Campanha
+                                    </button>
                                 </div>
-                            </div>
+                            </form>
                         </div>
 
                         <div class="tab-pane fade" id="v-pills-conteudo" role="tabpanel" aria-labelledby="v-pills-conteudo-tab">

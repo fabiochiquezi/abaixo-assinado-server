@@ -6,7 +6,7 @@ use App\FormSite;
 use App\PersonConfig\PersonField;
 use App\Services\RepositoryFormSite;
 use Illuminate\Http\Request;
-
+use Mockery\Undefined;
 
 class EditSystemController extends Controller
 {
@@ -22,25 +22,33 @@ class EditSystemController extends Controller
         
         return view('dashboard.editAbaixoAssinado', [
             'dataInputs' => $dataInputs,
+            'typesInput' => $personField->getTypesInput(),
+            'typesRequired' => $personField->getRequiredTypes()
+        ]);
+    }
+
+    public function editForm()
+    {
+        $dataInputs = FormSite::all();
+        $personField = new PersonField();
+        
+        return view('dashboard.editAbaixoAssinadoForm', [
+            'dataInputs' => $dataInputs,
             'typesInput' => $personField->getTypesInput()
         ]);
     }
 
     public function editFormSite(Request $request){
-        if(!$request->has('item'))
-            return redirect()
-                ->route('dashboard.home')
-                ->withErrors([ "Houve um erro no lançamento da campanha. 
-                Nenhum dado foi enviado!"]);
-
+        $itens = empty($request->all()['item']) ? [] : $request->all()['item'];
+        
         $repository = new RepositoryFormSite();
-        $transaction = $repository->newFormSite($request->all()['item']);
+        $transaction = $repository->newFormSite($itens);
 
         if(!$transaction['ok'])
             return redirect()
                 ->route('dashboard.home')
                 ->withErrors([$transaction['error']]);
 
-        // return redirect()->route('dashboard.home');
+        return redirect()->route('dashboard.home');
     }
 }
