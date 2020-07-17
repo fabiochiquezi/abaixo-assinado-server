@@ -54,7 +54,7 @@
             }
         </style>
 
-        <div class="d-flex">
+        <div class="d-flex mb-5">
             <div class="group-buttons d-flex justify-content-between align-items-center w-100">
                 <a href="{{ route('dashboard.cleanData') }}" class="btn btn-danger">Limpar dados</a>
                 

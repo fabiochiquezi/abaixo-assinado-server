@@ -10,6 +10,7 @@ use App\Services\RepositorySiteData;
 use App\SiteData;
 use Illuminate\Http\Request;
 use Exception;
+use Illuminate\Support\Facades\Route;
 
 class EditSystemController extends Controller
 {
@@ -18,27 +19,16 @@ class EditSystemController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(Request $request)
     {
+        $view = Route::current()->getName() == 'dashboard.editForm' ? 
+        'dashboard.editAbaixoAssinado' : 'dashboard.editAbaixoAssinadoForm';
+
         $dataInputs = FormSite::all();
         $personField = new PersonField();
         $siteData = SiteData::all()->first();;
         
-        return view('dashboard.editAbaixoAssinado', [
-            'dataInputs' => $dataInputs,
-            'typesInput' => $personField->getTypesInput(),
-            'typesRequired' => $personField->getRequiredTypes(),
-            'siteData' => $siteData
-        ]);
-    }
-
-    public function editForm()
-    {
-        $dataInputs = FormSite::all();
-        $personField = new PersonField();
-        $siteData = SiteData::all()->first();;
-
-        return view('dashboard.editAbaixoAssinadoForm', [
+        return view("$view", [
             'dataInputs' => $dataInputs,
             'typesInput' => $personField->getTypesInput(),
             'typesRequired' => $personField->getRequiredTypes(),
@@ -58,7 +48,6 @@ class EditSystemController extends Controller
                 ->route('dashboard.editForm-site')
                 ->withErrors([$validation['errors']]);
         
-
         $repository = new RepositoryFormSite();
         $transaction = $repository->newFormSite($itens);
 

@@ -97,7 +97,6 @@
                         type="file" 
                         class="custom-file-input" 
                         id="customFile" 
-                        value="{{ $siteData->mobile_banner }}"
                         placeholder="Banner Mobile"
                     >
                     <label class="custom-file-label" for="customFile" data-browse="640 x 400"></label>
@@ -108,7 +107,6 @@
                         type="file" 
                         class="custom-file-input" 
                         id="customFile"
-                        value="{{ $siteData->tablet_banner }}"
                         placeholder="Banner Tablet"
                     >
                     <label class="custom-file-label" for="customFile" data-browse="992 x 526"></label>
@@ -119,7 +117,6 @@
                         type="file" 
                         class="custom-file-input" 
                         id="customFile"
-                        value="{{ $siteData->desktop_banner }}"
                         placeholder="Banner Desktop"
                     >
                     <label class="custom-file-label" for="customFile" data-browse="1520 x 526"></label>
@@ -204,3 +201,6 @@
         {{-- <a href="" class="btn btn-primary mt-3 align-self-end">Enviar</a> --}}
     </form>
 </div>
+
+<script src="https://cdn.ckeditor.com/4.7.3/standard/ckeditor.js"></script>
+<script>CKEDITOR.replace( 'text_content' );</script>

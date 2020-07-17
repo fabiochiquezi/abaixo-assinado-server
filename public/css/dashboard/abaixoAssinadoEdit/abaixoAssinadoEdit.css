@@ -1,3 +1,6 @@
 .content-system-page .formEditAbaixoAssinado-js .edit-form-system li:nth-child(even) {
   background: #efefef;
   padding: 16px 0px; }
+
+.custom-file-label {
+  overflow: hidden; }

@@ -2,6 +2,7 @@ import DashControllerEdit from '../Controller/DashControllerEdit.js';
 let DashEditCtrl = new DashControllerEdit();
 let buttonAddsField = document.querySelector('.buttonAddsField-js');
 let buttonSendFormAbaixoAssinado = document.querySelector('.buttonSend-js');
+let inputsFile = document.querySelectorAll('.custom-file-input');
 buttonAddsField === null || buttonAddsField === void 0 ? void 0 : buttonAddsField.addEventListener('click', (e) => {
     e.preventDefault();
     DashEditCtrl.addNewItem();
@@ -19,4 +20,9 @@ document.addEventListener('click', function (e) {
 buttonSendFormAbaixoAssinado === null || buttonSendFormAbaixoAssinado === void 0 ? void 0 : buttonSendFormAbaixoAssinado.addEventListener('click', (e) => {
     e.preventDefault();
     DashEditCtrl.sendFormAbaixoAssinado();
+});
+inputsFile.forEach(el => {
+    el.addEventListener('change', () => {
+        el.nextElementSibling.innerText = el.value;
+    });
 });

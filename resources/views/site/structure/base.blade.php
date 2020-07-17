@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>
+        {{ $content->nome_site ?? 'Mariana Conti | Vereadora em campinas' }}
+    </title>
+    <meta name="description" content="{{ $content->descricao_site ?? 'Mariana Conti | Vereadora em campinas' }}">
+
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Cookie" />
     <link rel="stylesheet" href="{{ asset('css/site/style.css') }}">

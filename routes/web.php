@@ -10,7 +10,7 @@ Auth::routes();
 // Route::get('/login', 'LoginController@index')->name('login');
 
 // Login
-Route::get('/login', 'LoginController@index')->name('dashboard.login');
+Route::view('/login', 'dashboard.login')->name('dashboard.login');
 Route::post('/login/action', 'LoginController@loginAction')->name('dashboard.login.action');
 Route::get('/logout/action', 'LoginController@logoutAction')->name('dashboard.logout.action');
 
@@ -21,9 +21,10 @@ Route::get('/clean-data', 'DataTableController@cleanData')->name('dashboard.clea
 
 // Dashboard - Page abaixo assinado
 Route::get('/edit-form', 'EditSystemController@index')->name('dashboard.editForm');
-Route::get('/edit-form-site', 'EditSystemController@editForm')->name('dashboard.editForm-site');
+Route::get('/edit-form-site', 'EditSystemController@index')->name('dashboard.editForm-site');
+// edit "formulário"
 Route::post('/edit-form-site-action', 'EditSystemController@editFormSite')->name('dashboard.editFormSite.action');
-
+// edit "conteúdo geral"
 Route::post('/edit-site', 'EditSystemController@editSite')->name('dashboard.editSite');
 
 

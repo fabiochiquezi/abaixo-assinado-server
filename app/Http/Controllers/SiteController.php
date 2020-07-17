@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\AbaixoAssinado;
 use App\FormSite;
 use App\PersonConfig\PersonField;
+use App\SiteData;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -13,11 +14,13 @@ class SiteController extends Controller
 {
     public function index(){
         $formFields = FormSite::all();
+        $content = SiteData::all()->first();
         $personField = new PersonField();
 
         return view('site.home', [
             'formFields' => $formFields,
-            'personField' => $personField->getTypes()
+            'personField' => $personField->getTypes(),
+            'content' => $content
         ]);
     }
 

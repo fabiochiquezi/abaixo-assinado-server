@@ -29,7 +29,9 @@
                         class="form-control" 
                         id="exampleInputEmail1" 
                         aria-describedby="emailHelp" 
-                        placeholder="Insira seu e-mail">
+                        placeholder="Insira seu e-mail"
+                        value="{{ old('email') }}"
+                      >
                     </div>
     
                     <div class="form-group mb-4">
@@ -41,6 +43,7 @@
                         class="form-control" 
                         id="exampleInputPassword1" 
                         placeholder="Insira sua senha"
+                        value="{{ old('password') }}"
                       >
                     </div>
     

@@ -7236,6 +7236,9 @@ a.text-dark:hover, a.text-dark:focus {
   padding: 16px 0px; }
 
 .custom-file-label {
+  overflow: hidden; }
+
+.custom-file-label {
   max-width: 570px;
   margin-left: 15px; }
   @media (min-width: 1200px) {

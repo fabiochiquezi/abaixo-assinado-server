@@ -7348,12 +7348,10 @@ h2.title-standard {
 .banner-site {
   height: 400px;
   width: 100%;
-  background: url("../../img/banner-desktop.png") no-repeat center center;
   background-size: cover; }
-  @media (min-width: 768px) {
+  @media (min-width: 640px) {
     .banner-site {
       height: 526px;
-      background: url("../../img/banner-desktop.png") no-repeat center center;
       background-size: cover; } }
 
 .form-site {

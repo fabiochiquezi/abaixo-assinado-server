@@ -23,22 +23,20 @@ class DataTableController extends Controller
         $thead = FormSite::all();
         $tbody = AbaixoAssinado::paginate($this->quantityPagination);
 
-
         return view('dashboard.abaixoAssinado', [
             'thead' => $thead,
             'tbody' => $tbody
         ]);
     }
 
-    public function csvGenerate(){
-        
-            $tbody = AbaixoAssinado::all();
-            $thead = FormSite::all();
+    public function csvGenerate(){        
+        $tbody = AbaixoAssinado::all();
+        $thead = FormSite::all();
 
         if(!count($tbody))
             return redirect()
-            ->route('dashboard.dataTable')
-            ->withErrors(['A tabela está vázia']);
+                ->route('dashboard.dataTable')
+                ->withErrors(['A tabela está vázia']);
 
         try{
             $csvService = new CsvServices();
@@ -46,7 +44,6 @@ class DataTableController extends Controller
     
             $downloadFile = new DownloadFileService();
             $downloadFile->csv();
-            
         }
         catch(Exception $error){
             return redirect()
