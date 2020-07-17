@@ -7231,7 +7231,7 @@ a.text-dark:hover, a.text-dark:focus {
     .content-system-sig-in .form-login h1 {
       font-size: 36px; }
 
-.content-system-page .formEditAbaixoAssinado-js li:nth-child(even) {
+.content-system-page .formEditAbaixoAssinado-js .edit-form-system li:nth-child(even) {
   background: #efefef;
   padding: 16px 0px; }
 

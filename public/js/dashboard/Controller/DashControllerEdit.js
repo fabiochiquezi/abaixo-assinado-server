@@ -1,7 +1,9 @@
 import DashDataView from '../Views/DashEditView.js';
+import ValidationEditFormService from '../Services/ValidationEditFormService.js';
 export default class DashControllerEdit {
     constructor() {
         this._formEditAbaixoAssinado = document.querySelector('.formEditAbaixoAssinado-js');
+        this._validEditForm = new ValidationEditFormService();
         this._dashView = new DashDataView();
     }
     addNewItem() {
@@ -15,6 +17,9 @@ export default class DashControllerEdit {
     }
     sendFormAbaixoAssinado() {
         var _a;
-        (_a = this._formEditAbaixoAssinado) === null || _a === void 0 ? void 0 : _a.submit();
+        let errors = this._validEditForm.valid(this._formEditAbaixoAssinado);
+        if (!errors.length)
+            (_a = this._formEditAbaixoAssinado) === null || _a === void 0 ? void 0 : _a.submit();
+        this._dashView.showErrrors(errors, this._formEditAbaixoAssinado);
     }
 }

@@ -33,15 +33,17 @@
                                     <ul class="form-list"></ul>
                                 </div>
 
-                                @if($errors->all())
-                                    <div class="alert alert-danger w-100">
+                               
+                                    <div class="alert alert-danger w-100 d-none">
                                         <ul class="mb-0">
-                                            @foreach($errors->all() as $error)
-                                                <li>{{ $error }}</li>
-                                            @endforeach
+                                            @if($errors->all())
+                                                @foreach($errors->all() as $error)
+                                                    <li>{{ $error }}</li>
+                                                @endforeach
+                                            @endif
                                         </ul>
                                     </div>
-                                @endif
+                                
 
                                 <div class="d-flex justify-content-between">
                                     <a href="{{route('dashboard.editForm')}}" class="btn btn-dark">Cancelar</a>
@@ -53,86 +55,7 @@
                             </form>
                         </div>
 
-                        <div class="tab-pane fade" id="v-pills-conteudo" role="tabpanel" aria-labelledby="v-pills-conteudo-tab">
-                            <form class="d-flex flex-column justify-content-end">
-                                
-                                <div class="form-group row">
-                                    <label for="colFormLabel" class="col-sm-2 col-form-label">Link:</label>
-                                    <div class="col-sm-10">
-                                        <span>/abaixo-assinado-em-prol-de-uma-causa</span>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label for="colFormLabel" class="col-sm-2 col-form-label">Nome</label>
-                                    <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="colFormLabel" placeholder="Digite o nome do abaixo-assinado">
-                                    </div>
-                                </div>
-
-                                <div class="group-field">
-
-                                    <div class="form-group row">
-                                        <label for="colFormLabel" class="col-sm-2 col-form-label">Banner</label>
-                                        <div class="col-sm-10">
-                                            <input type="file" class="custom-file-input" id="customFile">
-                                            <label class="custom-file-label" for="customFile" data-browse="Selecionar um arquivo"></label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label for="colFormLabel" class="col-sm-2 col-form-label">Titulo</label>
-                                    <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="colFormLabel" placeholder="Digite um título p/ a página">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label for="colFormLabel" class="col-sm-2 col-form-label">Subtítulo</label>
-                                    <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="colFormLabel" placeholder="Digite um título p/ a página">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label for="colFormLabel" class="col-sm-2 col-form-label">Conteúdo</label>
-                                    <div class="col-sm-10">
-                                        <textarea class="form-control" placeholder="Required example textarea" rows="4">Digite um texto p/ a página</textarea>
-                                    </div>
-                                </div>
-
-                                <div class="form-group row align-items-end">
-                                    <label for="colFormLabel" class="col-sm-2 col-form-label">WhatssApp</label>
-                                    <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="colFormLabel" placeholder="Digite seu WhatsApp, ex: 19983127035">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label for="colFormLabel" class="col-sm-2 col-form-label">Facebook</label>
-                                    <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="colFormLabel" placeholder="Digite o link do seu Facebook">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label for="colFormLabel" class="col-sm-2 col-form-label">Twitter</label>
-                                    <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="colFormLabel" placeholder="Digite o link do seu Twitter">
-                                    </div>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label for="colFormLabel" class="col-sm-2 col-form-label">Instagram</label>
-                                    <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="colFormLabel" placeholder="Digite o link do seu Instagram">
-                                    </div>
-                                </div>
-                                
-                                <a href="" class="btn btn-primary mt-3 align-self-end">Enviar</a>
-                            </form>
-                        </div>
+                        @include('dashboard.partials.conteudoGeral')
                     </div>
                 </div>
             </div>

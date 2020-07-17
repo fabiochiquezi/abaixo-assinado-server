@@ -71,7 +71,7 @@ class RepositoryFormSite{
             id INT AUTO_INCREMENT PRIMARY KEY,
             nome VARCHAR(250) not null,
             e_mail VARCHAR(250) not null,
-            whatsapp VARCHAR(13) not null";
+            whatsapp VARCHAR(250) not null";
 
         DB::statement('drop table if exists abaixo_assinado');
         

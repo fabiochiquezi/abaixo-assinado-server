@@ -22,7 +22,7 @@
 
         <nav class="navbar navbar-expand-md navbar-light header-site">
             <div class="container">
-                <a href="" class="navbar-brand">
+                <a href="https://marianacontipsol.com.br/" class="navbar-brand">
                     <img src="{{ asset('img/logo.png') }}" alt="">
                 </a>
     
@@ -32,16 +32,15 @@
             
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav d-flex justify-content-end w-100 align-items-md-center">
-                        <a href="" class="nav-item nav-link ml-2">Inicio</a>
-                        <a href="" class="nav-item nav-link ml-2">Conheça</a>
-                        <a href="" class="nav-item nav-link ml-2">Atuação</a>
-                        <a href="" class="nav-item nav-link ml-2">Blog</a>
-                        <a href="" class="nav-item nav-link ml-2">Contato</a>
-                        <a href="" class="nav-item nav-link ml-2">Campanha</a>
-                        <a href="" class="nav-item nav-link ml-2 active">Abaixo Assinado</a>
+                        <a href="https://marianacontipsol.com.br/" class="nav-item nav-link ml-2">Inicio</a>
+                        <a href="https://marianacontipsol.com.br/conheca/" class="nav-item nav-link ml-2">Conheça</a>
+                        <a href="https://marianacontipsol.com.br/atuacao/" class="nav-item nav-link ml-2">Atuação</a>
+                        <a href="https://marianacontipsol.com.br/blog-4/" class="nav-item nav-link ml-2">Blog</a>
+                        <a href="https://marianacontipsol.com.br/contato/" class="nav-item nav-link ml-2">Contato</a>
+                        <a href="{{ route('site.home') }}" class="nav-item nav-link ml-2 active">Abaixo Assinado</a>
                     </div>
     
-                    <a href="" class="ml-auto text-white button-sair">Sair</a>
+                    {{-- <a href="" class="ml-auto text-white button-sair">Sair</a> --}}
                 </div>
             </div>        
         </nav>
@@ -49,11 +48,10 @@
 
     @yield('content-page')
 
-
     <foter class="footer-site">
         <div class="top w-100">
             <div class="container d-flex flex-column align-items-center flex-lg-row justify-content-lg-between">
-                <a href="" class="logo">
+                <a href="https://marianacontipsol.com.br/" class="logo">
                     <img src="{{ asset('img/logo-2.png') }}" alt="">
                 </a>
 

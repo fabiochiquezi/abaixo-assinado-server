@@ -53,8 +53,8 @@
         </div>
     </div>
 
-    <script type="module" src="./js/dashboard/Pages/dashEdit.js"></script>
     <script src="./js/jquery.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
+    <script type="module" src="./js/dashboard/Pages/dashEdit.js"></script>
 </body>
 </html>

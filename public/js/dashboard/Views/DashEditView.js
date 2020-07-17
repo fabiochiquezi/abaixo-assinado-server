@@ -6,7 +6,7 @@ export default class DashDataView {
                     <input 
                         name="item[{amount}][nomeInput]"
                         type="text" 
-                        class="form-control" 
+                        class="form-control input-name" 
                         placeholder="Nome do input"
                     >
                 </div>
@@ -64,5 +64,12 @@ export default class DashDataView {
     }
     deleteItem(el) {
         el.remove();
+    }
+    showErrrors(errors, form) {
+        let errorHTML = '';
+        errors.forEach(el => errorHTML += `<li>${el}</li>`);
+        form.querySelector('.alert').classList.remove('d-none');
+        form.querySelector('.alert ul').innerHTML = errorHTML;
+        $('#modalEditForm-js').modal('hide');
     }
 }
